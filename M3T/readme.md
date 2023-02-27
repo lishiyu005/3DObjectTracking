@@ -26,6 +26,20 @@ The repository is organized in the following folders:
 ## Build
 Use [CMake](https://cmake.org/) to build the library from source. The following dependencies are required: [Eigen 3](https://eigen.tuxfamily.org/index.php?title=Main_Page), [GLEW](http://glew.sourceforge.net/), [GLFW 3](https://www.glfw.org/), and [OpenCV 4](https://opencv.org/). In addition, unit tests are implemented using [gtest](https://github.com/google/googletest), while images from an Azure Kinect or RealSense camera can be streamed using the [K4A](https://github.com/microsoft/Azure-Kinect-Sensor-SDK) and [realsense2](https://github.com/IntelRealSense/librealsense) libraries. All three libraries are optional and can be disabled using the *CMake* flags `USE_GTEST`, `USE_AZURE_KINECT`, and `USE_REALSENSE`. If [OpenCV 4](https://opencv.org/) is installed with [CUDA](https://developer.nvidia.com/cuda-downloads), feature detectors used in the texture modality are able to utilize the GPU. If *CMake* finds [OpenMP](https://www.openmp.org/), the code is compiled using multithreading and vectorization for some functions. Finally, the documentation is built if [Doxygen](https://www.doxygen.nl/index.html) with *dot* is detected. Note that links to pages or classes that are embedded in this readme only work in the generated documentation. After a correct build, it should be possible to successfully execute all tests in `./gtest_run`. For maximum performance, ensure that the library is created in `Release` mode, and, for example, use `-DCMAKE_BUILD_TYPE=Release`.
 
+Installation indetails:
+
+1. Eigen3
+Install Eigen3 (Ubuntu)
+
+Installing Eigen3 on Ubuntu is quite straightforward. Note that you will be prompted for your password upon using sudo. Type:
+
+sudo apt install libeigen3-dev
+
+Install Eigen3 (Windows)
+
+    Download the desired release from http://eigen.tuxfamily.org.
+    Unzip in the location of your choice, preferrably at C:\ or C:\Program files for better discoverability by CMake find-modules (remember to extract the inner folder and rename it to Eigen3 or Eigen).
+
 
 ## Algorithm
 
